@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bro&Duo</title>
+    <style>
+        /* Color Palette */
+        :root {
+            --primary: #5F264A;
+            --secondary: #643A6B;
+            --accent: #957777;
+            --background: #B0A4A4;
+        }
+
+        /* Basic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--primary);
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Tool Container */
+        .tool {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            color: var(--accent);
+        }
+
+        /* Input and Button Styling */
+        .tool input, .tool button {
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid var(--accent);
+            width: 100%;
+            color: var(--primary);
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--accent);
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: var(--secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tool {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Bro&Duo</h1>
+    <p>Welcome to Bro&Duo - The Ultimate Compatibility Tester for Bros and Perfect Duos!</p>
+
+    <!-- Bro Compatibility Test -->
+    <div class="tool" id="bro-compatibility">
+        <h2>Bro Compatibility Test</h2>
+        <input type="text" id="bro1" placeholder="Enter Bro 1's Name">
+        <input type="text" id="bro2" placeholder="Enter Bro 2's Name">
+        <button onclick="checkBroCompatibility()">Check Compatibility</button>
+        <div id="bro-result"></div>
+    </div>
+
+    <!-- Perfect Duo Test -->
+    <div class="tool" id="perfect-duo">
+        <h2>Perfect Duo Test</h2>
+        <input type="text" id="interest1" placeholder="Your Favorite Activity">
+        <input type="text" id="interest2" placeholder="Ideal Duo's Activity">
+        <button onclick="checkPerfectDuo()">Find Your Perfect Duo</button>
+        <div id="duo-result"></div>
+    </div>
+
+    <script>
+        // Bro Compatibility Test
+        function checkBroCompatibility() {
+            const bro1 = document.getElementById("bro1").value;
+            const bro2 = document.getElementById("bro2").value;
+            if (!bro1 || !bro2) {
+                document.getElementById("bro-result").innerText = "Please enter both names.";
+                return;
+            }
+            const compatibilityScore = Math.floor(Math.random() * 100) + 1;
+            document.getElementById("bro-result").innerText = `${bro1} and ${bro2} are ${compatibilityScore}% compatible as bros!`;
+        }
+
+        // Perfect Duo Test
+        function checkPerfectDuo() {
+            const interest1 = document.getElementById("interest1").value;
+            const interest2 = document.getElementById("interest2").value;
+            if (!interest1 || !interest2) {
+                document.getElementById("duo-result").innerText = "Please enter both activities.";
+                return;
+            }
+            const duoScore = Math.floor(Math.random() * 100) + 1;
+            document.getElementById("duo-result").innerText = `Your perfect duo match score is ${duoScore}% based on your interests!`;
+        }
+    </script>
+</body>
+</html>
